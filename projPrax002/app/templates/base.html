@@ -1,0 +1,98 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <title> {% block titulo %}   {% endblock %} </title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <style type="text/css">
+            .divider:after, .divider:before {
+                content: "";
+                flex: 1;
+                height: 1px;
+                background: #eee;
+            }
+            .h-custom {
+                height: calc(100% - 73px);
+            }
+            @media (max-width: 450px) {
+                .h-custom {
+                    height: 100%;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="vh-100" style="max-height: 800px;">
+            <div
+                class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+                <!-- Title -->
+                <div class="text-white mb-3 mb-md-0">
+                    {% block subtitulo %}   {% endblock %}
+                </div>
+                <!-- Title -->
+        
+            </div>
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="{% url 'home' %}" class="nav-link active" aria-current="page">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Reactivos evaluación</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'alta_elementos' %}">Alta</a>
+                        <a class="dropdown-item" href="{% url 'consulta_elementos' %}">Consulta</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Participantes</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'alta_participantes' %}">Alta</a>
+                        <a class="dropdown-item" href="{% url 'consulta_participantes' %}">Consulta</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Avance</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Un participante</a>
+                        <a class="dropdown-item" href="#">Todos los participantes</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col" style="width:80%;">
+                        {% block contenido %}   {% endblock %}
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+                <!-- Copyright -->
+                <div class="text-white mb-3 mb-md-0">
+                    ©2023. By Ing. Jaime Montes de oca Ruíz
+                </div>
+                <!-- Copyright -->
+            </div>
+
+            <!-- Bootstrap JavaScript Libraries -->
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+                integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+            </script>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+                integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+            </script>
+        </section>
+    </body>
+
+</html>

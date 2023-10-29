@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block titulo %}  Consulta de reactivos evaluación {% endblock %} 
+{% block subtitulo %}  Gamificación de avance {% endblock %} 
+{% block contenido %}  
+    <br /> 
+    <br /> 
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Praxthon Amateur 2023</h4>
+        <h6 class="card-subtitle text-muted">Consulta de reactivos de evaluación</h6>
+      </div>
+      <img src="holder.js/100x180/" alt="">
+      <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-borderless table-primary align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Id Reactivo</th>
+                        <th>Texto reactivo</th>
+                        <th>Casillas de avance</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        {% for elemento in elementos %}
+                            <tr class="table-primary">
+                                <td scope="row">{{ elemento.id_elemento }}</td>
+                                <td>{{ elemento.descripcion_elemento }}</td>
+                                <td>{{ elemento.casillas_elemento }}</td>
+                                <td><a name="" id="" class="btn btn-info" href="{% url 'editar_elementos' elemento.id_elemento %}" role="button">Editar</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+            </table>
+        </div>
+        
+      </div>
+    </div>
+
+    <br /> 
+    <br /> 
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block titulo %}  Alta de elementos {% endblock %} 
+{% block subtitulo %}  Gamificación de avance {% endblock %} 
+{% block contenido %}  
+    <br /> 
+    <br /> 
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Praxthon Amateur 2023</h4>
+            <h6 class="card-subtitle text-muted">Alta de reactivos</h6>
+        </div>
+        <img src="holder.js/100x180/" alt="">
+        <div class="card-body">
+            <div class="table-responsive">
+                <form name="formInsReactivos" id="formInsReactivos" method="post">
+                    {% csrf_token %}
+                    <table class="table table-primary">
+                        <tbody>
+                            {% for campo in elementos %}
+                                <tr class="">
+                                    <td scope="row">{{ campo.label }}</td>
+                                    <td>
+                                        <div class="mb-3">
+                                            <input type="{{ campo.field.widget.input_type }}"
+                                                class="form-control" name="{{ campo.name }}" id="{{ campo.name }}" aria-describedby="helpId" placeholder="Escribe el valor de {{ campo.label }}">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <div class="col-12 help-text"> 
+                                    <tr>
+                                        <td colspan="2">
+                                            {{ campo.errors }}
+                                        </td>
+                                    </tr>
+                                </div>
+                            {% endfor %}
+                            <tr class="">
+                                <td scope="row" colspan="2">
+                                    <button type="submit" class="btn btn-success">Enviar información</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+    <br /> 
+    <br /> 
+{% endblock %}
